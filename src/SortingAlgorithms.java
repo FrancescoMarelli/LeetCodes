@@ -1,3 +1,4 @@
+
 public class SortingAlgorithms {
 
     public static Integer[] bubbleSort(Integer[] array) {
@@ -18,24 +19,27 @@ public class SortingAlgorithms {
     }
 
     public static Integer[] quickSort(Integer[] arr) {
-       //
-        return arr;
+        return quickSort(arr, 0, arr.length-1);
     }
+    private static Integer[] quickSort(Integer[] arr, int st, int end) {
+        int pivot = arr[(st + end) /2];
+        int i = st;
+        int j = end;
+       while (i <= j) {
+           while (arr[i] < pivot) i++;
+           while (arr[j] > pivot) j--;
 
-    Integer[] twoSum(Integer[] nums, int target) {
-        Integer[] sumVector = new Integer[]{};
-        for(int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                if (i != j) {
-                    if (nums[i] + nums[j] == target) {
-                        sumVector[0] = i;
-                        sumVector[1] = j;
-                        break;
-                    }
-                }
-            }
-        }
-        return sumVector;
+           if (i <= j) {
+               int temp = arr[i];
+               arr[i] = arr[j];
+               arr[j] = temp;
+               i++;
+               j--;
+           }
+       }
+         if (st < j) quickSort(arr, st, j);
+         if (i < end) quickSort(arr, i, end);
 
+        return arr;
     }
 }
