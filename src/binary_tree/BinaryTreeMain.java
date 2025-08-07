@@ -1,3 +1,5 @@
+package binary_tree;
+
 public class BinaryTreeMain {
 
    public static void main (String [] s) {

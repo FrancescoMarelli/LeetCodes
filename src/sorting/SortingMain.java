@@ -1,3 +1,5 @@
+package sorting;
+
 public class SortingMain {
 
     public static void main(String[] s) {
